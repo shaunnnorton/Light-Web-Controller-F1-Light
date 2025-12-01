@@ -31,7 +31,7 @@ def colors():
 
 
 @app.route('/SinglePixelRandom', methods=['GET'])
-def colors():
+def singlePixelRandom():
     color = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
     pixels[random.randint(1,30)] = color
     pixels.show()
