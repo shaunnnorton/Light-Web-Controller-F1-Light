@@ -16,13 +16,17 @@
   <h1>Color Controller</h1>
   <div id="colorPicker"></div>
   <button id="offButton">Off</button>
-  <form action="/SinglePixelRandom" method="get">
-    <button id="randomButton" type="submit">Random Color</button>
-  </form>
+  <button id="randomButton">Random Color</button>
   
   <script>
     const offButton = document.getElementById('offButton');
+    let randomButton = document.getElementById("randomButton")
+    let sendRandom = () => {
+      fetch("/SinglePixelRandom"      )
 
+    }
+
+    randomButton.addEventListener("click", () => {sendRandom()})
     // Initialize Iro.js color picker
     const colorPicker = new iro.ColorPicker('#colorPicker', {
       width: 300,
