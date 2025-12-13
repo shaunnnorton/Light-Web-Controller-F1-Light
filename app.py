@@ -10,7 +10,7 @@ num_pixels = 200
 ORDER = neopixel.GRB
 
 
-pixels = neopixel.NeoPixel(board.D18, 200, brightness=0.5, auto_write=False, pixel_order=neopixel.GRB)
+pixels = neopixel.NeoPixel(board.D18, num_pixels, brightness=0.5, auto_write=False, pixel_order=ORDER)
 
 @app.route('/')
 def index():
