@@ -24,8 +24,8 @@ pixels = neopixel.NeoPixel(board.D18, num_pixels, brightness=1, auto_write=False
 
 @main.route('/')
 def index():
-    rows = sorted(appconfig["frameshape"].keys())
-    columns = sorted(appconfig["frameshape"][rows[0]].keys())
+    rows = sorted(appconfig.frameshape.keys())
+    columns = sorted(appconfig.frameshape[rows[0]].keys())
     return render_template('index.html', rows=rows, columns=columns)
 
 
