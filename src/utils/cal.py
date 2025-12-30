@@ -47,11 +47,11 @@ class Schedule():
 
 
     def lightCurrentTrack(self):
-        track_number = self.current_schedule[self.current_time]["RaceNumber"]
+        track_number = self.current_schedule[self.current_time.strftime("%-m/%-d/%Y")]["RaceNumber"]
         row = ceil(track_number/6)
         column = track_number % 6 if track_number % 6 != 0 else 6
 
-        print(f'Track: {self.current_schedule[self.current_time]["RaceNumber"]} Row:{row} Column: {column}')
+        print(f'Track: {self.current_schedule[self.current_time.strftime("%-m/%-d/%Y")]["RaceNumber"]} Row:{row} Column: {column}')
 
         request("GET",f"https://localhost:8080/Automatic", params={"row":row, "column":column})
 
