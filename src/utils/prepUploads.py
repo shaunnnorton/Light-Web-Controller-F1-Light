@@ -9,9 +9,9 @@ def parseUploadedExcel(filename):
         export_json = {}
         uploadedDF = pd.read_excel(filename,engine="openpyxl").to_dict(orient="index")
         for row in uploadedDF:
-            export_json[row["Date"]] = {
-                "Track Name": row["Track Name"],
-                "RaceNumber": row["Race Number"]
+            export_json[uploadedDF[row]["Date"]] = {
+                "Track Name": uploadedDF[row]["Track Name"],
+                "RaceNumber": uploadedDF[row]["Race Number"]
             }
         
         with open(f"./src/static/schedules/ImportedSchedule{dt.now().strftime("%Y%m%d%H%M%s")}.json", "w") as newfile:
