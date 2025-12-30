@@ -23,7 +23,7 @@ def parseUploadedExcel(filename):
 
         with open(appconfig.currentScheduleFile,"w+") as config_file:
             config_json = json.load(config_file)
-            config_json.currentScheduleFile = new_filename
+            config_json.currentScheduleFile = "./src/static/schedules/"+new_filename
             config_file.write(json.dump(config_json))
 
         return "File successfully uploaded!"
