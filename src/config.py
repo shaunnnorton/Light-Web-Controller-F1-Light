@@ -8,6 +8,7 @@ class Config(object):
     frameshape = {}
     pixel_order = neopixel.GRB
     currentScheduleFile = ""
+    automatic_refresh = True
 
     def __init__(self):
         with open("attributes.json") as attributes:
@@ -17,6 +18,7 @@ class Config(object):
         self.pixel_order = neopixel.GRB
         self.frameshape = jsondata["frameshape"]
         self.currentScheduleFile = jsondata["currentScheduleFile"]
+        self.automatic_refresh = True
 
     def get_updated_attributes(self):
 

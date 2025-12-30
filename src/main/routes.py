@@ -28,7 +28,7 @@ pixels = neopixel.NeoPixel(board.D18, num_pixels, brightness=1, auto_write=False
 def index():
     rows = sorted(appconfig.frameshape.keys())
     columns = sorted(appconfig.frameshape[rows[0]].keys())
-    return render_template('index.html', rows=rows, columns=columns)
+    return render_template('index.html', rows=rows, columns=columns, automatic_updates=appconfig.automatic_update)
 
 
 @main.route('/colors', methods=['POST'])
@@ -75,6 +75,9 @@ def SetBoxColor():
 
 @main.route('/Automatic', methods=['GET'])
 def AutomaticUpdate():
+    if appconfig.automatic_refresh == False:
+        return jsonify({"message":"color recived"}) 
+
     appconfig.get_updated_attributes()
 
     row = request.args.get("row")
@@ -93,9 +96,15 @@ def AutomaticUpdate():
     return jsonify({"message":"color recived"})
 
 
+
+
+
 def allowed_file_upload(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ("xlsx", "xls")
+
+
+
 
 @main.route('/UploadNewFile', methods=['GET', 'POST'])
 def upload_file():
@@ -131,3 +140,10 @@ def upload_file():
 @main.route("/GetTemplate", methods=["GET"])
 def getTemplate():
     return send_file("static/schedules/uploaded_file/F1UploadTemplate.xlsx")
+
+
+@main.route("/ToggleAutoUpdate", methods=["GET"])
+def toggleUpdate():
+        appconfig.automatic_update = not appconfig.automatic_update
+        flash(f"Automatic Update Set to {appconfig.automatic_refresh}")
+        return redirect(url_for('main.index'))

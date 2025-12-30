@@ -9,6 +9,12 @@
   <input type="color" name="colorPicker" id="colorPicker">
   <button id="offButton">Off</button>
   <button id="randomButton">Random Color</button>
+  <h2>Toggle Automatic Updates</h2>
+  {% if automatic_updates %}
+  <button class="active" id="automaticUpdateButton">Turn Off</button>
+  {% else %}
+  <button class="inactive" id="automaticUpdateButton">Turn On</button>
+  {% endif %}
 
   <h1>Color Grid</h1>
   <input type="color" name="GridColorSelector" id="GridColorSelector">
