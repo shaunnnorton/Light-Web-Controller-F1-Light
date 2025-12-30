@@ -69,7 +69,7 @@ class Schedule():
             self.refreshSchedule()
             self.findNextDate()
             if self.current_time.date() == self.next_date.date():
-                print(f"Updating Track: {self.current_schedule[self.next_date]["Track Name"]}")
+                print(f"Updating Track: {self.current_schedule[self.current_time.strftime("%-m/%-d/%Y")]["Track Name"]}")
                 self.lightCurrentTrack()
 
 
