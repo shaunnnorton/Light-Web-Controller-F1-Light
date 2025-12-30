@@ -11,7 +11,7 @@ class Config(object):
 
     def __init__(self):
         with open("attributes.json") as attributes:
-            jsondata = json.load(attributes.read())
+            jsondata = json.load(attributes)
 
         self.pixelcount = jsondata["pixels"]
         self.pixel_order = neopixel.GRB
