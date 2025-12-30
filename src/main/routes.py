@@ -117,7 +117,7 @@ def upload_file():
 
 
             flash(uploadparse)
-            return redirect(url_for('index'))
+            return redirect(url_for('main.index'))
     return '''
     <!doctype html>
     <title>Upload new Schedule File</title>
