@@ -1,4 +1,5 @@
 {
+    "currentScheduleFile":"./src/static/schedules/testSchedule.json",
     "pixels": 120,
     "frameshape": {
         "1": {

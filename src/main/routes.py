@@ -63,12 +63,31 @@ def SetBoxColor():
     color = tuple(int(color[i:i+2], 16) for i in (0, 2, 4))
 
     for pixel in appconfig.frameshape[row][col]["PIXELS"]:
-        pixels[pixel] = color
+        pixels[pixel-1] = color
 
     pixels.show()
     print(color)
 
     return jsonify({"message":"color recived"})
 
+
+@main.route('/Automatic', methods=['GET'])
+def AutomaticUpdate():
+    appconfig.get_updated_attributes()
+
+    row = request.args.get("row")
+    col = request.args.get("column")
+    
+    background_color = (255,255,255)
+    color = (255,0,0)
+    pixels.fill(background_color)
+
+    print(color)
+    for pixel in appconfig.frameshape[row][col]["PIXELS"]:
+        pixels[pixel-1] = color
+    pixels.show()
+    print(color)
+
+    return jsonify({"message":"color recived"})
 
 

@@ -1,4 +1,11 @@
 from src import app
+import threading
+from src.utils import cal
+
 
 if __name__ == "__main__":
-    app.run(debug=False,port=8080, host="0.0.0.0")
+
+    schedule = cal.Schedule(".src/static/schedules/testSchedule.json")
+    threading.Thread(target=schedule.functionalLoop)
+    threading.Thread(target=app.run, kwargs={"debug":False,"port":8080, "host":"0.0.0.0"})
+    #app.run(debug=False,port=8080, host="0.0.0.0")
