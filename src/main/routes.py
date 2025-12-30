@@ -130,4 +130,4 @@ def upload_file():
 
 @main.route("/GetTemplate", methods=["GET"])
 def getTemplate():
-    return send_file("./src/static/schedules/uploaded_file/F1UploadTemplate.xlsx")
+    return send_file("static/schedules/uploaded_file/F1UploadTemplate.xlsx")
