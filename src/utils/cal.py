@@ -33,11 +33,11 @@ class Schedule():
 
 
     def findNextDate(self):
-        print(
-            self.appconfig,
-            self.current_schedule,
-            self.next_date,
-            self.current_time)
+        # print(
+        #     self.appconfig,
+        #     self.current_schedule,
+        #     self.next_date,
+        #     self.current_time)
         self.current_time = dt.now()
         for date in self.current_schedule.keys():
             parsedDate = dt.strptime(date, "%m/%d/%Y")
