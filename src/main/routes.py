@@ -10,8 +10,8 @@ appconfig = config.Config()
 
 main = Blueprint("main", __name__)
 
-
-
+print(appconfig.pixelcount)
+print(appconfig.pixel_order)
 
 # The number of NeoPixels
 num_pixels = appconfig.pixelcount
@@ -64,7 +64,7 @@ def SetBoxColor():
 
     pixels.show()
     print(color)
-    
+
     return jsonify({"message":"color recived"})
 
 
