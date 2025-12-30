@@ -31,7 +31,7 @@ function sendColor(colorValue) {
 }
 
 // Send color when user picks a new one
-colorPicker.on('change', (color) => {
+colorPicker.addEventListener('change', (e) => {
     sendColor(colorPicker.value);
 });
 
