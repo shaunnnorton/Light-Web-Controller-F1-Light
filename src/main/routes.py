@@ -1,16 +1,21 @@
 from flask import Flask, render_template, request, jsonify, Blueprint
 import time
 import board
-#import neopixel
+import neopixel
 import random
+from .. import config
 
+
+appconfig = config.Config()
 
 main = Blueprint("main", __name__)
 
-app = Flask(__name__)
+
+
+
 # The number of NeoPixels
-num_pixels = 200
-ORDER = neopixel.GRB
+num_pixels = appconfig.pixelcount
+ORDER = appconfig.pixel_order
 
 
 
@@ -40,6 +45,26 @@ def singlePixelRandom():
     pixels[random.randint(1,30)] = color
     pixels.show()
     print(color)
+    return jsonify({"message":"color recived"})
+
+
+@main.route('/SetBoxColor', methods=['GET'])
+def SetBoxColor():
+    appconfig.get_updated_attributes()
+
+    row = request.args.get("row")
+    col = request.args.get("column")
+    color = request.args.get("color")
+    print(color)
+    color = color.lstrip('#')
+    color = tuple(int(color[i:i+2], 16) for i in (0, 2, 4))
+
+    for pixel in appconfig.frameshape[row][col]["PIXELS"]:
+        pixels[pixel] = color
+
+    pixels.show()
+    print(color)
+    
     return jsonify({"message":"color recived"})
 
 
