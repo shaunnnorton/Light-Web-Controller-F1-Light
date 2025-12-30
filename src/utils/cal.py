@@ -53,7 +53,7 @@ class Schedule():
 
         print(f'Track: {self.current_schedule[self.current_time.strftime("%-m/%-d/%Y")]["RaceNumber"]} Row:{row} Column: {column}')
 
-        request("GET",f"https://localhost:8080/Automatic", params={"row":row, "column":column})
+        request("GET",f"http://localhost:8080/Automatic", params={"row":row, "column":column})
 
 
     def refreshSchedule(self):
@@ -65,7 +65,7 @@ class Schedule():
     def functionalLoop(self):
 
         while True:
-            sleep(60)
+            sleep(10)
             self.refreshSchedule()
             self.findNextDate()
             if self.current_time.date() == self.next_date.date():
