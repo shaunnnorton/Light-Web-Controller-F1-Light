@@ -28,7 +28,7 @@ pixels = neopixel.NeoPixel(board.D18, num_pixels, brightness=1, auto_write=False
 def index():
     rows = sorted(appconfig.frameshape.keys())
     columns = sorted(appconfig.frameshape[rows[0]].keys())
-    return render_template('index.html', rows=rows, columns=columns, automatic_updates=appconfig.automatic_update)
+    return render_template('index.html', rows=rows, columns=columns, automatic_updates=appconfig.automatic_refresh)
 
 
 @main.route('/colors', methods=['POST'])
@@ -144,6 +144,6 @@ def getTemplate():
 
 @main.route("/ToggleAutoUpdate", methods=["GET"])
 def toggleUpdate():
-        appconfig.automatic_update = not appconfig.automatic_update
+        appconfig.automatic_refresh = not appconfig.automatic_refresh
         flash(f"Automatic Update Set to {appconfig.automatic_refresh}")
         return redirect(url_for('main.index'))
