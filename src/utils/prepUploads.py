@@ -22,8 +22,8 @@ def parseUploadedExcel(filename):
 
     with open("attributes.json","r") as config_file:
         print(config_file)
-        config_json = json.loads(config_file.read())
-        config_json.currentScheduleFile = "./src/static/schedules/"+new_filename
+        config_json = json.load(config_file)
+        config_json["currentScheduleFile"] = "./src/static/schedules/"+new_filename
         
     with open("attributes.json","w") as config_file_new:
         print(config_json)
