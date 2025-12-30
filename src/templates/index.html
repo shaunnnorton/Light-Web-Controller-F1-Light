@@ -10,11 +10,13 @@
   <button id="offButton">Off</button>
   <button id="randomButton">Random Color</button>
 
+  <h1>Color Grid</h1>
+  <input type="color" name="GridColorSelector" id="GridColorSelector">
   <div id="lightgrid">
     {% for row in rows %}
     <div class="lightrow" data-row="{{ row }}">
         {% for col in columns %}
-        <input class="boxColor" type="color" data-col="{{ col }}">
+        <input class="boxColor" type="button" data-col="{{ col }}">
         {% endfor %}
     </div>
     {% endfor %}
