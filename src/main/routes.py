@@ -19,7 +19,7 @@ print(appconfig.pixel_order)
 num_pixels = appconfig.pixelcount
 ORDER = appconfig.pixel_order
 
-UPLOAD_FOLDER = "/src/static/schedules"
+UPLOAD_FOLDER = "./src/static/schedules/uploaded_file"
 
 
 pixels = neopixel.NeoPixel(board.D18, num_pixels, brightness=1, auto_write=False, pixel_order=ORDER)
