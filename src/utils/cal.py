@@ -56,7 +56,7 @@ class Schedule():
 
     def functionalLoop(self):
         while True:
-            sleep("60")
+            sleep(60)
             self.refreshSchedule()
             self.findNextDate()
             if self.current_time.date() == self.next_date:
