@@ -3,4 +3,3 @@ include
 lib/
 lib64
 pyvenv.cfg
-src/static/schedules/*.json
