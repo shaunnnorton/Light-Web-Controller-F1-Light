@@ -9,7 +9,7 @@ def parseUploadedExcel(filename):
         export_json = {}
         uploadedDF = pd.read_excel(filename,engine="openpyxl").to_dict(orient="index")
         for row in uploadedDF:
-            export_json[uploadedDF[row]["Date"]] = {
+            export_json[dt.fromtimestamp(uploadedDF[row]["Date"]).strftime("%-m/%-d/%Y")] = {
                 "Track Name": uploadedDF[row]["Track Name"],
                 "RaceNumber": uploadedDF[row]["Race Number"]
             }
