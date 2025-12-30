@@ -35,7 +35,7 @@ class Schedule():
     def findNextDate(self):
         self.current_time = dt.now()
         for date in self.current_schedule.keys():
-            parsedDate = dt.strptime(date, "%-m/%-d/%Y")
+            parsedDate = dt.strptime(date, "%m/%d/%Y")
             if parsedDate >= self.current_time.date() and parsedDate <= self.next_date:
                 self.next_date = parsedDate
         return self.next_date
