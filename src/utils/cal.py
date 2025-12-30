@@ -36,7 +36,7 @@ class Schedule():
         self.current_time = dt.now()
         for date in self.current_schedule.keys():
             parsedDate = dt.strptime(date, "%m/%d/%Y")
-            if parsedDate >= self.current_time.date() and parsedDate <= self.next_date:
+            if parsedDate.date() >= self.current_time.date() and parsedDate.date() <= self.next_date.date():
                 self.next_date = parsedDate
         return self.next_date
 
@@ -59,7 +59,7 @@ class Schedule():
             sleep(60)
             self.refreshSchedule()
             self.findNextDate()
-            if self.current_time.date() == self.next_date:
+            if self.current_time.date() == self.next_date.date():
                 print(f"Updating Track: {self.current_schedule[self.next_date]["Track Name"]}")
                 self.lightCurrentTrack()
 
