@@ -19,11 +19,14 @@ ORDER = appconfig.pixel_order
 
 
 
+
 pixels = neopixel.NeoPixel(board.D18, num_pixels, brightness=1, auto_write=False, pixel_order=ORDER)
 
 @main.route('/')
 def index():
-    return render_template('index.html')
+    rows = sorted(appconfig["frameshape"].keys())
+    columns = sorted(appconfig["frameshape"][rows[0]].keys())
+    return render_template('index.html', rows=rows, columns=columns)
 
 
 @main.route('/colors', methods=['POST'])
