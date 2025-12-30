@@ -12,8 +12,8 @@ from .. import config
 
 
 class Schedule():
-    current_schedule = None
-    next_date = None
+    current_schedule = {}
+    next_date = dt(2000,1,1)
     current_time = None
     appconfig = None
 
@@ -26,9 +26,9 @@ class Schedule():
             self.appconfig = config.Config()
         except:
             self.appconfig = config.Config()
-            self.current_schedule = None
-            self.next_date = None
-            self.current_time = None
+            self.current_schedule = dt()
+            self.next_date = dt(2000,1,1)
+            self.current_time = dt.now()
         
 
 
@@ -50,6 +50,9 @@ class Schedule():
         track_number = self.current_schedule[self.current_time]["RaceNumber"]
         row = ceil(track_number/6)
         column = track_number % 6 if track_number % 6 != 0 else 6
+
+        print(f'Track: {self.current_schedule[self.current_time]["RaceNumber"]} Row:{row} Column: {column}')
+
         request("GET",f"https://localhost:8080/Automatic", params={"row":row, "column":column})
 
 
