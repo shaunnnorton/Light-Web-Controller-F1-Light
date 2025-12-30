@@ -22,7 +22,7 @@ def parseUploadedExcel(filename):
         appconfig = config.Config()
 
         with open(appconfig.currentScheduleFile,"w+") as config_file:
-            config_json = json.load(json)
+            config_json = json.load(config_file)
             config_json.currentScheduleFile = new_filename
             config_file.write(json.dump(config_json))
 
