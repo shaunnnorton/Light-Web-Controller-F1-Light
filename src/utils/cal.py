@@ -26,7 +26,7 @@ class Schedule():
             self.appconfig = config.Config()
         except:
             self.appconfig = config.Config()
-            self.current_schedule = dt()
+            self.current_schedule = {}
             self.next_date = dt(2000,1,1)
             self.current_time = dt.now()
         
