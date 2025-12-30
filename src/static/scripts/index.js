@@ -61,7 +61,7 @@ offButton.addEventListener('click', () => {
 
 
 colorBoxes.forEach(box => {
-    box.addEventListener("click", (e) => {
+    box.addEventListener("click", function (e) {
         setBoxColor(
             this.parentNode.dataset.row,
             this.dataset.col,
