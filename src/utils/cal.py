@@ -55,6 +55,11 @@ class Schedule():
 
 
     def functionalLoop(self):
+        print(
+            self.appconfig,
+            self.current_schedule,
+            self.next_date,
+            self.current_time)
         while True:
             sleep(60)
             self.refreshSchedule()
