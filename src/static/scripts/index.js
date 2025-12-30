@@ -15,16 +15,14 @@ randomButton.addEventListener("click", () => {sendRandom()})
 
 
 let setBoxColor = (row, col, color) => {
-    fetch("/SetBoxColor", {
-        method:"GET",
-        body: new URLSearchParams(
+    let params = new URLSearchParams(
             {
                 row:row,
                 column:col,
                 color:color
             }
-        )
-    })
+    )
+    fetch(`/SetBoxColor?${params}`)
 }
 
 
