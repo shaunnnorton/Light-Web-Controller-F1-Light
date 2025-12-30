@@ -26,5 +26,5 @@ def parseUploadedExcel(filename):
             config_file.write(json.dump(config_json))
 
         return "File successfully uploaded!"
-    except:
-        return "Error when uploading file. Please check format and try again."
+    except Exception as e:
+        return f"Error when uploading file. Please check format and try again. \n EXCEPTION {e}"
