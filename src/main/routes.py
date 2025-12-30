@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, Blueprint, flash,redirect, url_for
+from flask import Flask, render_template, request, jsonify, Blueprint, flash,redirect, url_for, send_file
 import os
 import time
 import board
@@ -127,3 +127,7 @@ def upload_file():
       <input type=submit value=Upload>
     </form>
     '''
+
+@main.route("/GetTemplate", methods=["GET"])
+def getTemplate():
+    return send_file("./src/static/schedules/uploaded_file/F1UploadTemplate.xlsx")

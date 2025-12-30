@@ -1,10 +1,12 @@
 const offButton = document.getElementById('offButton');
 let randomButton = document.getElementById("randomButton")
+let downloadButton = document.getElementById("GetTemplateButton")
 
 let gridColor = document.getElementById("GridColorSelector")
 let colorBoxes = document.querySelectorAll(".boxColor")
 
 
+downloadButton.addEventListener("click", () => {fetch("/GetTemplate")})
 
 let sendRandom = () => {
     fetch("/SinglePixelRandom"      )
