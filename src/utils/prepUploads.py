@@ -20,13 +20,15 @@ def parseUploadedExcel(filename):
         new_filename = newfile.name
 
 
-    with open("attributes.json","w+") as config_file:
+    with open("attributes.json","r") as config_file:
         print(config_file)
         config_json = json.loads(config_file.read())
         config_json.currentScheduleFile = "./src/static/schedules/"+new_filename
+        
+    with open("attributes.json","w") as config_file_new:
         print(config_json)
 
-        config_file.write(json.dumps(config_json))
+        config_file_new.write(json.dumps(config_json))
 
     return "File successfully uploaded!"
     # except Exception as e:
